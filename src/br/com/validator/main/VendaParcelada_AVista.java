@@ -12,7 +12,7 @@ public class VendaParcelada_AVista {
 	public static void main(String[] args) {
 
 		String linha = "";
-		String tags = "TAG’s do BIT 48: 01, 02, 03, 43, 45, 46, 47, 48, 49, 4B, 88, 92, 93";
+		String tags = "BitIdentificador = 54, bit01, bit02, bit03, bit40 = fixo 2 posições, bit4A, bit88,bit92,bit93";
 		
 		String varivavel43, variavel45, variavel46, variavel47, variavel92, variavel93;
 		String SinalIdentificador, Sinalbit01, Sinalbit02, Sinalbit03, Sinalbit04, Sinalbit43, Sinalbit45, Sinalbit46, Sinalbit47, Sinalbit48, Sinalbit49, Sinalbit4b, Sinalbit88, Sinalbit92, Sinalbit93;
