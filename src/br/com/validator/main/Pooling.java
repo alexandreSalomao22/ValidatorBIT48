@@ -12,7 +12,7 @@ public class Pooling {
 	public static void main(String[] args) {
 
 		String linha = "";
-		String tags = "TAG’s do BIT 48: 01, 02, 03, 43, 45, 46, 47, 48, 49, 4B, 88, 92, 93";
+		String tags = "TAG’s do BIT 48: 01, 02, 03, 40, 4A, 88, 92, 93";
 
 		String variavel92, variavel93, variavel4A;
 		String SinalIdentificador, Sinalbit01, Sinalbit02, Sinalbit03, Sinalbit40, Sinalbit88, Sinalbit92, Sinalbit93,

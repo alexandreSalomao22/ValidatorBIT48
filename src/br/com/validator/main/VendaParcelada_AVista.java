@@ -14,10 +14,10 @@ public class VendaParcelada_AVista {
 		String linha = "";
 		String tags = "BitIdentificador = 54, bit01, bit02, bit03, bit40 = fixo 2 posições, bit4A, bit88,bit92,bit93";
 		
-		String varivavel43, variavel45, variavel46, variavel47, variavel92, variavel93;
-		String SinalIdentificador, Sinalbit01, Sinalbit02, Sinalbit03, Sinalbit04, Sinalbit43, Sinalbit45, Sinalbit46, Sinalbit47, Sinalbit48, Sinalbit49, Sinalbit4b, Sinalbit88, Sinalbit92, Sinalbit93;
-		String bitIdentificador, bit01, bit02, bit03, bit04 = null, bit43 = null, bit45 = null, bit46 = null, bit47 = null, bit48 = null, bit49 = null, bit4b = null, bit88 = null, bit92 = null, bit93 = null;
-		int bit43size, bit45size, bit46size, bit47size, bit92size, bit93size;
+		String varivavel43, variavel45, variavel46, variavel47, variavel92, variavel93, variavel4A;
+		String SinalIdentificador, Sinalbit40, Sinalbit4A ,Sinalbit01, Sinalbit02, Sinalbit03, Sinalbit04, Sinalbit43, Sinalbit45, Sinalbit46, Sinalbit47, Sinalbit48, Sinalbit49, Sinalbit4b, Sinalbit88, Sinalbit92, Sinalbit93;
+		String bitIdentificador, bit4A = null, bit40 = null ,bit01, bit02, bit03, bit04 = null, bit43 = null, bit45 = null, bit46 = null, bit47 = null, bit48 = null, bit49 = null, bit4b = null, bit88 = null, bit92 = null, bit93 = null;
+		int bit43size, bit45size, bit46size, bit47size, bit92size, bit93size, bit4Asize;
 		
 		String path = JOptionPane
 				.showInputDialog("COLOQUE O REPOSITORIO ONDE SE ENCONTRA OS ARQUIVOS\n Ex: C:\\logs");
@@ -56,13 +56,12 @@ public class VendaParcelada_AVista {
 					if (linha == null)
 						break;
 					if (linha.contains(findText)) {
-						
-						bitIdentificador = linha.substring(0, 2);
-						bit01 = linha.substring(2, 8);
-						bit02 = linha.substring(8, 26);
-						bit03 = linha.substring(26,32);
-						
+
 						if(linha.substring(32, 36).equals("0403")) {
+							bitIdentificador = linha.substring(0, 2);
+							bit01 = linha.substring(2, 8);
+							bit02 = linha.substring(8, 26);
+							bit03 = linha.substring(26,32);
 							bit04 = linha.substring(32, 36);
 							
 							varivavel43 = linha.substring(40,42);
@@ -165,7 +164,7 @@ public class VendaParcelada_AVista {
 							Sinalbit47 = "\tERRO";
 						}
 						
-						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
 						{
 							Sinalbit48 = "\tOK";
 						}
@@ -219,8 +218,99 @@ public class VendaParcelada_AVista {
 								 + bit4b + Sinalbit4b + "\r\n" + bit88 + Sinalbit88 + "\r\n" + bit92 + Sinalbit92 + "\r\n" + bit93 + Sinalbit93 + "\r\n"
 								 + "\r\n" + "----------------------------------------------------------------------------" + "\r\n", args);
 						}
+						
+						//Estorno
+						
+						else if (linha.substring(32, 36).equals("4001"))
+						{
+							bitIdentificador = linha.substring(0, 2);
+							bit01 = linha.substring(2, 8);
+							bit02 = linha.substring(8, 26);
+							bit03 = linha.substring(26,32);
+							bit40 = linha.substring(32, 36);
+
+							variavel4A = linha.substring(40, 42);
+							bit4Asize = Integer.parseInt(variavel4A);
+							bit4Asize = bit4Asize * 2;
+							bit4A = linha.substring(36, 42 + bit4Asize);
+
+							bit88 = linha.substring(42 + bit4Asize, 80 + bit4Asize);
+
+							variavel92 = linha.substring(84 + bit4Asize, 86 + bit4Asize);
+							bit92size = Integer.parseInt(variavel92);
+							bit92size = bit92size * 2;
+							bit92 = linha.substring(80 + bit4Asize, 86 + bit4Asize + bit92size);
+
+							variavel93 = linha.substring(90 + bit4Asize + bit92size, 92 + bit4Asize + bit92size);
+							bit93size = Integer.parseInt(variavel93);
+							bit93size = bit93size * 2;
+							bit93 = linha.substring(86 + bit4Asize + bit92size, 92 + bit4Asize + bit92size + bit93size);
+
+							if (bitIdentificador.equals("54")) {
+								SinalIdentificador = "\tOK";
+							} else {
+								SinalIdentificador = "\tERRO";
+							}
+							if (bit01.equals("010490") || bit01.equals("010491")) {
+								Sinalbit01 = "\tOK";
+							} else {
+								Sinalbit01 = "\tERRO";
+							}
+							if (bit02.length() == 18) {
+								Sinalbit02 = "\tOK";
+							} else {
+								Sinalbit02 = "\tERRO";
+							}
+							if (bit03.length() == 6) {
+								Sinalbit03 = "\tOK";
+							} else {
+								Sinalbit03 = "\tERRO";
+							}
+
+							if (bit40.length() == 4) {
+								Sinalbit40 = "\tOK";
+							} else {
+								Sinalbit40 = "\tERRO";
+							}
+							if (bit4A.length() <= 56) {
+								Sinalbit4A = "\tOK";
+							} else {
+								Sinalbit4A = "\tERRO";
+							}
+
+							if (bit88.length() == 38) {
+								Sinalbit88 = "\tOK";
+							} else {
+								Sinalbit88 = "\tERRO";
+							}
+
+							if (bit92.length() <= 74) {
+								Sinalbit92 = "\tOK";
+							} else {
+								Sinalbit92 = "\tERRO";
+							}
+
+							if (bit93.length() <= 44) {
+								Sinalbit93 = "\tOK";
+							} else {
+								Sinalbit93 = "\tERRO";
+							}
+
+							saida.format("--Pooling--\r\n" + "\r\n" + bitIdentificador + SinalIdentificador + "\r\n" + bit01
+									+ Sinalbit01 + "\r\n" + bit02 + Sinalbit02 + "\r\n" + bit03 + Sinalbit03 + "\r\n"
+									+ bit40 + Sinalbit40 + "\r\n" + bit4A + Sinalbit4A + "\r\n" + bit88 + Sinalbit88
+									+ "\r\n" + bit92 + Sinalbit92 + "\r\n" + bit93 + Sinalbit93 + "\r\n" + "\r\n"
+									+ "----------------------------------------------------------------------------"
+									+ "\r\n", args);
+							
+						}
+						
 						else {
 							
+							bitIdentificador = linha.substring(0, 2);
+							bit01 = linha.substring(2, 8);
+							bit02 = linha.substring(8, 26);
+							bit03 = linha.substring(26,32);
 							varivavel43 = linha.substring(36,38);
 							bit43size = Integer.parseInt(varivavel43);
 							bit43size = bit43size*2;
