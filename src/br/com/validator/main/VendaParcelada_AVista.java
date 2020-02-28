@@ -19,6 +19,7 @@ public class VendaParcelada_AVista {
 		String bitIdentificador, bit4A = null, bit40 = null ,bit01, bit02, bit03, bit04 = null, bit43 = null, bit45 = null, bit46 = null, bit47 = null, bit48 = null, bit49 = null, bit4b = null, bit88 = null, bit92 = null, bit93 = null;
 		int bit43size, bit45size, bit46size, bit47size, bit92size, bit93size, bit4Asize;
 		
+		
 		String path = JOptionPane
 				.showInputDialog("COLOQUE O REPOSITORIO ONDE SE ENCONTRA OS ARQUIVOS\n Ex: C:\\logs");
 		String arq = JOptionPane.showInputDialog("DIGITE O NOME DO ARQUIVO A SER SALVO");
@@ -56,6 +57,9 @@ public class VendaParcelada_AVista {
 					if (linha == null)
 						break;
 					if (linha.contains(findText)) {
+						
+						String verificacao = linha.substring(14,16);
+						int v = Integer.parseInt(verificacao);
 
 						if(linha.substring(32, 36).equals("0403")) {
 							bitIdentificador = linha.substring(0, 2);
@@ -217,6 +221,281 @@ public class VendaParcelada_AVista {
 								 + bit46 + Sinalbit46 + "\r\n" + bit47 + Sinalbit47 + "\r\n" + bit48 + Sinalbit48 + "\r\n" + bit49 + Sinalbit49 + "\r\n"
 								 + bit4b + Sinalbit4b + "\r\n" + bit88 + Sinalbit88 + "\r\n" + bit92 + Sinalbit92 + "\r\n" + bit93 + Sinalbit93 + "\r\n"
 								 + "\r\n" + "----------------------------------------------------------------------------" + "\r\n", args);
+						}
+						
+						
+						
+						else if (linha.substring(2,4).equals("01") && linha.substring(8,10).equals("03") && v != 04 ) {
+							bitIdentificador = linha.substring(0, 2);
+							bit01 = linha.substring(2, 8);
+							bit03 = linha.substring(8, 14);
+							
+							varivavel43 = linha.substring(18,20);
+							bit43size = Integer.parseInt(varivavel43);
+							bit43size = bit43size*2;
+							bit43 = linha.substring(14, 20+bit43size);
+							
+							variavel45 = linha.substring(24+bit43size,26+bit43size);
+							bit45size = Integer.parseInt(variavel45);
+							bit45size = bit45size*2;
+							bit45 = linha.substring(20+bit43size, 26+bit43size+bit45size);
+							
+							variavel46 = linha.substring(30+bit43size+bit45size, 32+bit43size+bit45size);
+							bit46size = Integer.parseInt(variavel46);
+							bit46size = bit46size*2;
+							bit46 = linha.substring(26+bit43size+bit45size, 32+bit43size+bit45size+bit46size);
+							
+							variavel47 = linha.substring(36+bit43size+bit45size+bit46size, 38+bit43size+bit45size+bit46size);
+							bit47size = Integer.parseInt(variavel47);
+							bit47size = bit47size*2;
+							bit47 = linha.substring(32+bit43size+bit45size+bit46size, 38+bit43size+bit45size+bit46size+bit47size);
+							
+							bit48 = linha.substring(38+bit43size+bit45size+bit46size+bit47size, 44+bit43size+bit45size+bit46size+bit47size);
+							bit49 = linha.substring(44+bit43size+bit45size+bit46size+bit47size, 62+bit43size+bit45size+bit46size+bit47size);
+							
+							variavel4A = linha.substring(66+bit43size+bit45size+bit46size+bit47size, 68+bit43size+bit45size+bit46size+bit47size);
+							bit4Asize = Integer.parseInt(variavel4A);
+							bit4Asize = bit4Asize*2;
+							bit4A = linha.substring(62+bit43size+bit45size+bit46size+bit47size, 68+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							
+							bit88 = linha.substring(68+bit43size+bit45size+bit46size+bit47size+bit4Asize, 106+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							
+							variavel92 = linha.substring(110+bit43size+bit45size+bit46size+bit47size+bit4Asize, 112+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							bit92size = Integer.parseInt(variavel92);
+							bit92size = bit92size*2;
+							bit92 = linha.substring(106+bit43size+bit45size+bit46size+bit47size+bit4Asize, 112+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size);
+							
+							variavel93 = linha.substring(116+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size, 118+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size);
+							bit93size = Integer.parseInt(variavel93);
+							bit93size = bit93size*2;
+							bit93 = linha.substring(112+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size, 118+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size+bit93size);
+							
+							if (bitIdentificador.equals("54")) {
+								SinalIdentificador = "\tOK";
+							} else {
+								SinalIdentificador = "\tERRO";
+							}
+							if (bit01.equals("010490") || bit01.equals("010491")) {
+								Sinalbit01 = "\tOK";
+							} else {
+								Sinalbit01 = "\tERRO";
+							}
+
+							if (bit03.length() == 6) {
+								Sinalbit03 = "\tOK";
+							} else {
+								Sinalbit03 = "\tERRO";
+							}
+							
+							if (bit43.length() <= 34) {
+								Sinalbit43 = "\tOK";
+							} else {
+								Sinalbit43 = "\tERRO";
+							}
+							
+							if (bit45.length() <= 52) {
+								Sinalbit45 = "\tOK";
+							} else {
+								Sinalbit45 = "\tERRO";
+							}
+							
+							if (bit46.length() <= 40) {
+								Sinalbit46 = "\tOK";
+							} else {
+								Sinalbit46 = "\tERRO";
+							}
+							if (bit47.length() <= 14) {
+								Sinalbit47 = "\tOK";
+							} else {
+								Sinalbit47 = "\tERRO";
+							}
+							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+							{
+								Sinalbit48 = "\tOK";
+							}
+								else {
+								Sinalbit48 = "\tERRO";
+							}
+							if (bit49.length() == 18)
+							{
+								Sinalbit49 = "\tOK";
+							}
+								else {
+								Sinalbit49 = "\tERRO";
+							}
+
+							if (bit4A.length() <= 56) {
+								Sinalbit4A = "\tOK";
+							} else {
+								Sinalbit4A = "\tERRO";
+							}
+
+							if (bit88.length() == 38) {
+								Sinalbit88 = "\tOK";
+							} else {
+								Sinalbit88 = "\tERRO";
+							}
+
+							if (bit92.length() <= 74) {
+								Sinalbit92 = "\tOK";
+							} else {
+								Sinalbit92 = "\tERRO";
+							}
+
+							if (bit93.length() <= 44) {
+								Sinalbit93 = "\tOK";
+							} else {
+								Sinalbit93 = "\tERRO";
+							}
+
+							saida.format("--Estorno A Vista--\r\n" + "\r\n" + bitIdentificador + SinalIdentificador + "\r\n" + bit01
+									+ Sinalbit01 + "\r\n" + bit03 + Sinalbit03 + "\r\n"
+									+ bit43 + Sinalbit43  + "\r\n" + bit45 + Sinalbit45 + "\r\n" + bit46 + Sinalbit46 + "\r\n"+ bit47 + Sinalbit47 + "\r\n" 
+									+ bit48 + Sinalbit48 + "\r\n"+ bit49 + Sinalbit49 + "\r\n" +  bit4A + Sinalbit4A + "\r\n" + bit88 + Sinalbit88
+									+ "\r\n" + bit92 + Sinalbit92 + "\r\n" + bit93 + Sinalbit93 + "\r\n" + "\r\n"
+									+ "----------------------------------------------------------------------------"
+									+ "\r\n", args);
+						}
+						
+						
+						else if(linha.substring(14,18).equals("0403")) {
+							bitIdentificador = linha.substring(0, 2);
+							bit01 = linha.substring(2, 8);
+							bit03 = linha.substring(8, 14);
+							bit04 = linha.substring(14,18);
+							
+							varivavel43 = linha.substring(22,24);
+							bit43size = Integer.parseInt(varivavel43);
+							bit43size = bit43size*2;
+							bit43 = linha.substring(18, 24+bit43size);
+							
+							variavel45 = linha.substring(28+bit43size,30+bit43size);
+							bit45size = Integer.parseInt(variavel45);
+							bit45size = bit45size*2;
+							bit45 = linha.substring(24+bit43size, 30+bit43size+bit45size);
+							
+							variavel46 = linha.substring(34+bit43size+bit45size, 36+bit43size+bit45size);
+							bit46size = Integer.parseInt(variavel46);
+							bit46size = bit46size*2;
+							bit46 = linha.substring(30+bit43size+bit45size, 36+bit43size+bit45size+bit46size);
+							
+							variavel47 = linha.substring(40+bit43size+bit45size+bit46size, 42+bit43size+bit45size+bit46size);
+							bit47size = Integer.parseInt(variavel47);
+							bit47size = bit47size*2;
+							bit47 = linha.substring(36+bit43size+bit45size+bit46size, 42+bit43size+bit45size+bit46size+bit47size);
+							
+							bit48 = linha.substring(42+bit43size+bit45size+bit46size+bit47size, 48+bit43size+bit45size+bit46size+bit47size);
+							bit49 = linha.substring(48+bit43size+bit45size+bit46size+bit47size, 66+bit43size+bit45size+bit46size+bit47size);
+							
+							variavel4A = linha.substring(70+bit43size+bit45size+bit46size+bit47size, 72+bit43size+bit45size+bit46size+bit47size);
+							bit4Asize = Integer.parseInt(variavel4A);
+							bit4Asize = bit4Asize*2;
+							bit4A = linha.substring(66+bit43size+bit45size+bit46size+bit47size, 72+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							
+							bit88 = linha.substring(72+bit43size+bit45size+bit46size+bit47size+bit4Asize, 110+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							
+							variavel92 = linha.substring(114+bit43size+bit45size+bit46size+bit47size+bit4Asize, 116+bit43size+bit45size+bit46size+bit47size+bit4Asize);
+							bit92size = Integer.parseInt(variavel92);
+							bit92size = bit92size*2;
+							bit92 = linha.substring(110+bit43size+bit45size+bit46size+bit47size+bit4Asize, 116+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size);
+							
+							variavel93 = linha.substring(120+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size, 122+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size);
+							bit93size = Integer.parseInt(variavel93);
+							bit93size = bit93size*2;
+							bit93 = linha.substring(116+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size, 122+bit43size+bit45size+bit46size+bit47size+bit4Asize+bit92size+bit93size);
+							
+							if (bitIdentificador.equals("54")) {
+								SinalIdentificador = "\tOK";
+							} else {
+								SinalIdentificador = "\tERRO";
+							}
+							if (bit01.equals("010490") || bit01.equals("010491")) {
+								Sinalbit01 = "\tOK";
+							} else {
+								Sinalbit01 = "\tERRO";
+							}
+
+							if (bit03.length() == 6) {
+								Sinalbit03 = "\tOK";
+							} else {
+								Sinalbit03 = "\tERRO";
+							}
+							
+							if (bit04.length() == 4) {
+								Sinalbit04 = "\tOK";
+							} else {
+								Sinalbit04 = "\tERRO";
+							}
+							
+							if (bit43.length() <= 34) {
+								Sinalbit43 = "\tOK";
+							} else {
+								Sinalbit43 = "\tERRO";
+							}
+							
+							if (bit45.length() <= 52) {
+								Sinalbit45 = "\tOK";
+							} else {
+								Sinalbit45 = "\tERRO";
+							}
+							
+							if (bit46.length() <= 40) {
+								Sinalbit46 = "\tOK";
+							} else {
+								Sinalbit46 = "\tERRO";
+							}
+							if (bit47.length() <= 14) {
+								Sinalbit47 = "\tOK";
+							} else {
+								Sinalbit47 = "\tERRO";
+							}
+							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+							{
+								Sinalbit48 = "\tOK";
+							}
+								else {
+								Sinalbit48 = "\tERRO";
+							}
+							if (bit49.length() == 18)
+							{
+								Sinalbit49 = "\tOK";
+							}
+								else {
+								Sinalbit49 = "\tERRO";
+							}
+
+							if (bit4A.length() <= 56) {
+								Sinalbit4A = "\tOK";
+							} else {
+								Sinalbit4A = "\tERRO";
+							}
+
+							if (bit88.length() == 38) {
+								Sinalbit88 = "\tOK";
+							} else {
+								Sinalbit88 = "\tERRO";
+							}
+
+							if (bit92.length() <= 74) {
+								Sinalbit92 = "\tOK";
+							} else {
+								Sinalbit92 = "\tERRO";
+							}
+
+							if (bit93.length() <= 44) {
+								Sinalbit93 = "\tOK";
+							} else {
+								Sinalbit93 = "\tERRO";
+							}
+							
+							saida.format("--Estorno Parcelado--\r\n" + "\r\n" + bitIdentificador + SinalIdentificador + "\r\n" + bit01
+									+ Sinalbit01 + "\r\n" + bit03 + Sinalbit03 + "\r\n"
+									+ bit04 + Sinalbit04 + "\r\n" + bit43 + Sinalbit43  + "\r\n" + bit45 + Sinalbit45 + "\r\n" + bit46 + Sinalbit46 + "\r\n"+ bit47 + Sinalbit47 + "\r\n" 
+									+ bit48 + Sinalbit48 + "\r\n"+ bit49 + Sinalbit49 + "\r\n" +  bit4A + Sinalbit4A + "\r\n" + bit88 + Sinalbit88
+									+ "\r\n" + bit92 + Sinalbit92 + "\r\n" + bit93 + Sinalbit93 + "\r\n" + "\r\n"
+									+ "----------------------------------------------------------------------------"
+									+ "\r\n", args);
+							
 						}
 						
 						//Estorno
