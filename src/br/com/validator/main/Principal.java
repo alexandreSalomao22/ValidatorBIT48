@@ -7,7 +7,7 @@ import java.util.Formatter;
 
 import javax.swing.JOptionPane;
 
-public class VendaParcelada_AVista {
+public class Principal {
 
 	public static void main(String[] args) {
 
@@ -60,7 +60,7 @@ public class VendaParcelada_AVista {
 						
 						String verificacao = linha.substring(14,16);
 						int v = Integer.parseInt(verificacao);
-
+						// VENDA PARCELADA
 						if(linha.substring(32, 36).equals("0403")) {
 							bitIdentificador = linha.substring(0, 2);
 							bit01 = linha.substring(2, 8);
@@ -117,34 +117,34 @@ public class VendaParcelada_AVista {
 							else {
 								Sinalbit01 = "\tERRO";
 							}
-						if ( bit02.length() == 18) 
+						if ( bit02.length() == 18 && bit02.substring(0,2).equals("02")) 
 							{
 								Sinalbit02 = "\tOK";
 							}
 							else {
 							Sinalbit02 = "\tERRO";
 						}
-						if (bit03.length() == 6) {
+						if (bit03.length() == 6 && bit03.substring(0,2).equals("03")) {
 							Sinalbit03 = "\tOK";
 						}
 							else {
 							Sinalbit03 = "\tERRO";
 						}
-						if (bit04.length() == 4) {
+						if (bit04.length() == 4 && bit04.substring(0,2).equals("04")) {
 							Sinalbit04 = "\tOK";
 						}
 							else {
 							Sinalbit04 = "\tERRO";
 						}
 						
-						if (bit43.length() <= 34)
+						if (bit43.length() <= 34 && bit43.substring(0,2).equals("43"))
 						{
 							Sinalbit43 = "\tOK";
 						}
 							else {
 							Sinalbit43 = "\tERRO";
 						}
-						if (bit45.length() <= 52)
+						if (bit45.length() <= 52 && bit45.substring(0,2).equals("45"))
 						{
 							Sinalbit45 = "\tOK";
 						}
@@ -152,7 +152,7 @@ public class VendaParcelada_AVista {
 							Sinalbit45 = "\tERRO";
 						}
 						
-						if (bit46.length() <= 40)
+						if (bit46.length() <= 40 && bit46.substring(0,2).equals("46"))
 						{
 							Sinalbit46 = "\tOK";
 						}
@@ -160,7 +160,7 @@ public class VendaParcelada_AVista {
 							Sinalbit46 = "\tERRO";
 						}
 						
-						if (bit47.length() <= 14)
+						if (bit47.length() <= 14 && bit47.substring(0,2).equals("47"))
 						{
 							Sinalbit47 = "\tOK";
 						}
@@ -168,14 +168,14 @@ public class VendaParcelada_AVista {
 							Sinalbit47 = "\tERRO";
 						}
 						
-						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004") && bit48.substring(0,2).equals("48"))
 						{
 							Sinalbit48 = "\tOK";
 						}
 							else {
 							Sinalbit48 = "\tERRO";
 						}
-						if (bit49.length() == 18)
+						if (bit49.length() == 18 && bit49.substring(0,2).equals("49"))
 						{
 							Sinalbit49 = "\tOK";
 						}
@@ -183,7 +183,7 @@ public class VendaParcelada_AVista {
 							Sinalbit49 = "\tERRO";
 						}
 						
-						if (bit4b.length() == 8)
+						if (bit4b.length() == 8 && bit4b.substring(0,2).equalsIgnoreCase("4B"))
 						{
 							Sinalbit4b = "\tOK";
 						}
@@ -191,7 +191,7 @@ public class VendaParcelada_AVista {
 							Sinalbit4b = "\tERRO";
 						}
 						
-						if (bit88.length() == 38)
+						if (bit88.length() == 38 && bit88.substring(0,2).equals("88"))
 						{
 							Sinalbit88 = "\tOK";
 						}
@@ -199,7 +199,7 @@ public class VendaParcelada_AVista {
 							Sinalbit88 = "\tERRO";
 						}
 						
-						if (bit92.length() <= 74)
+						if (bit92.length() <= 74 && bit92.substring(0,2).equals("92"))
 						{
 							Sinalbit92 = "\tOK";
 						}
@@ -207,7 +207,7 @@ public class VendaParcelada_AVista {
 							Sinalbit92 = "\tERRO";
 						}
 						
-						if (bit93.length() <= 44)
+						if (bit93.length() <= 44 && bit93.substring(0,2).equals("93"))
 						{
 							Sinalbit93 = "\tOK";
 						}
@@ -224,7 +224,7 @@ public class VendaParcelada_AVista {
 						}
 						
 						
-						
+						// ESTORNO A VISTA
 						else if (linha.substring(2,4).equals("01") && linha.substring(8,10).equals("03") && v != 04 ) {
 							bitIdentificador = linha.substring(0, 2);
 							bit01 = linha.substring(2, 8);
@@ -281,42 +281,42 @@ public class VendaParcelada_AVista {
 								Sinalbit01 = "\tERRO";
 							}
 
-							if (bit03.length() == 6) {
+							if (bit03.length() == 6 && bit03.substring(0,2).equals("03")) {
 								Sinalbit03 = "\tOK";
 							} else {
 								Sinalbit03 = "\tERRO";
 							}
 							
-							if (bit43.length() <= 34) {
+							if (bit43.length() <= 34 && bit43.substring(0,2).equals("43")) {
 								Sinalbit43 = "\tOK";
 							} else {
 								Sinalbit43 = "\tERRO";
 							}
 							
-							if (bit45.length() <= 52) {
+							if (bit45.length() <= 52 && bit45.substring(0,2).equals("45")) {
 								Sinalbit45 = "\tOK";
 							} else {
 								Sinalbit45 = "\tERRO";
 							}
 							
-							if (bit46.length() <= 40) {
+							if (bit46.length() <= 40 && bit46.substring(0,2).equals("46")) {
 								Sinalbit46 = "\tOK";
 							} else {
 								Sinalbit46 = "\tERRO";
 							}
-							if (bit47.length() <= 14) {
+							if (bit47.length() <= 14 && bit47.substring(0,2).equals("47")) {
 								Sinalbit47 = "\tOK";
 							} else {
 								Sinalbit47 = "\tERRO";
 							}
-							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004") && bit48.substring(0,2).equals("48"))
 							{
 								Sinalbit48 = "\tOK";
 							}
 								else {
 								Sinalbit48 = "\tERRO";
 							}
-							if (bit49.length() == 18)
+							if (bit49.length() == 18 && bit49.substring(0,2).equals("49"))
 							{
 								Sinalbit49 = "\tOK";
 							}
@@ -324,25 +324,25 @@ public class VendaParcelada_AVista {
 								Sinalbit49 = "\tERRO";
 							}
 
-							if (bit4A.length() <= 56) {
+							if (bit4A.length() <= 56 && bit4A.substring(0,2).equalsIgnoreCase("4A")) {
 								Sinalbit4A = "\tOK";
 							} else {
 								Sinalbit4A = "\tERRO";
 							}
 
-							if (bit88.length() == 38) {
+							if (bit88.length() == 38 && bit88.substring(0,2).equals("88")) {
 								Sinalbit88 = "\tOK";
 							} else {
 								Sinalbit88 = "\tERRO";
 							}
 
-							if (bit92.length() <= 74) {
+							if (bit92.length() <= 74 && bit92.substring(0,2).equals("92")) {
 								Sinalbit92 = "\tOK";
 							} else {
 								Sinalbit92 = "\tERRO";
 							}
 
-							if (bit93.length() <= 44) {
+							if (bit93.length() <= 44 && bit93.substring(0,2).equals("93")) {
 								Sinalbit93 = "\tOK";
 							} else {
 								Sinalbit93 = "\tERRO";
@@ -357,7 +357,7 @@ public class VendaParcelada_AVista {
 									+ "\r\n", args);
 						}
 						
-						
+						//ESTORNO PARCELADO
 						else if(linha.substring(14,18).equals("0403")) {
 							bitIdentificador = linha.substring(0, 2);
 							bit01 = linha.substring(2, 8);
@@ -415,48 +415,48 @@ public class VendaParcelada_AVista {
 								Sinalbit01 = "\tERRO";
 							}
 
-							if (bit03.length() == 6) {
+							if (bit03.length() == 6 && bit03.substring(0,2).equals("03")) {
 								Sinalbit03 = "\tOK";
 							} else {
 								Sinalbit03 = "\tERRO";
 							}
 							
-							if (bit04.length() == 4) {
+							if (bit04.length() == 4 && bit04.substring(0,2).equals("04")) {
 								Sinalbit04 = "\tOK";
 							} else {
 								Sinalbit04 = "\tERRO";
 							}
 							
-							if (bit43.length() <= 34) {
+							if (bit43.length() <= 34 && bit43.substring(0,2).equals("43")) {
 								Sinalbit43 = "\tOK";
 							} else {
 								Sinalbit43 = "\tERRO";
 							}
 							
-							if (bit45.length() <= 52) {
+							if (bit45.length() <= 52 && bit45.substring(0,2).equals("45")) {
 								Sinalbit45 = "\tOK";
 							} else {
 								Sinalbit45 = "\tERRO";
 							}
 							
-							if (bit46.length() <= 40) {
+							if (bit46.length() <= 40 && bit46.substring(0,2).equals("46")) {
 								Sinalbit46 = "\tOK";
 							} else {
 								Sinalbit46 = "\tERRO";
 							}
-							if (bit47.length() <= 14) {
+							if (bit47.length() <= 14 && bit47.substring(0,2).equals("47")) {
 								Sinalbit47 = "\tOK";
 							} else {
 								Sinalbit47 = "\tERRO";
 							}
-							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+							if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004") && bit48.substring(0,2).equals("48") )
 							{
 								Sinalbit48 = "\tOK";
 							}
 								else {
 								Sinalbit48 = "\tERRO";
 							}
-							if (bit49.length() == 18)
+							if (bit49.length() == 18 && bit49.substring(0,2).equals("49"))
 							{
 								Sinalbit49 = "\tOK";
 							}
@@ -464,25 +464,25 @@ public class VendaParcelada_AVista {
 								Sinalbit49 = "\tERRO";
 							}
 
-							if (bit4A.length() <= 56) {
+							if (bit4A.length() <= 56 && bit4A.substring(0,2).equalsIgnoreCase("4A")) {
 								Sinalbit4A = "\tOK";
 							} else {
 								Sinalbit4A = "\tERRO";
 							}
 
-							if (bit88.length() == 38) {
+							if (bit88.length() == 38 && bit88.substring(0,2).equals("88")) {
 								Sinalbit88 = "\tOK";
 							} else {
 								Sinalbit88 = "\tERRO";
 							}
 
-							if (bit92.length() <= 74) {
+							if (bit92.length() <= 74 && bit92.substring(0,2).equals("92")) {
 								Sinalbit92 = "\tOK";
 							} else {
 								Sinalbit92 = "\tERRO";
 							}
 
-							if (bit93.length() <= 44) {
+							if (bit93.length() <= 44 && bit93.substring(0,2).equals("93")) {
 								Sinalbit93 = "\tOK";
 							} else {
 								Sinalbit93 = "\tERRO";
@@ -498,7 +498,7 @@ public class VendaParcelada_AVista {
 							
 						}
 						
-						//Estorno
+						//POOLING
 						
 						else if (linha.substring(32, 36).equals("4001"))
 						{
@@ -535,41 +535,41 @@ public class VendaParcelada_AVista {
 							} else {
 								Sinalbit01 = "\tERRO";
 							}
-							if (bit02.length() == 18) {
+							if (bit02.length() == 18 && bit02.substring(0,2).equals("02")) {
 								Sinalbit02 = "\tOK";
 							} else {
 								Sinalbit02 = "\tERRO";
 							}
-							if (bit03.length() == 6) {
+							if (bit03.length() == 6 && bit03.substring(0,2).equals("03")) {
 								Sinalbit03 = "\tOK";
 							} else {
 								Sinalbit03 = "\tERRO";
 							}
 
-							if (bit40.length() == 4) {
+							if (bit40.length() == 4 && bit40.substring(0,2).equals("40")) {
 								Sinalbit40 = "\tOK";
 							} else {
 								Sinalbit40 = "\tERRO";
 							}
-							if (bit4A.length() <= 56) {
+							if (bit4A.length() <= 56 && bit4A.substring(0,2).equalsIgnoreCase("4A")) {
 								Sinalbit4A = "\tOK";
 							} else {
 								Sinalbit4A = "\tERRO";
 							}
 
-							if (bit88.length() == 38) {
+							if (bit88.length() == 38 && bit88.substring(0,2).equals("88")) {
 								Sinalbit88 = "\tOK";
 							} else {
 								Sinalbit88 = "\tERRO";
 							}
 
-							if (bit92.length() <= 74) {
+							if (bit92.length() <= 74 && bit92.substring(0,2).equals("92")) {
 								Sinalbit92 = "\tOK";
 							} else {
 								Sinalbit92 = "\tERRO";
 							}
 
-							if (bit93.length() <= 44) {
+							if (bit93.length() <= 44 && bit93.substring(0,2).equals("93")) {
 								Sinalbit93 = "\tOK";
 							} else {
 								Sinalbit93 = "\tERRO";
@@ -584,6 +584,7 @@ public class VendaParcelada_AVista {
 							
 						}
 						
+						//VENDA A VISTA
 						else {
 							
 							bitIdentificador = linha.substring(0, 2);
@@ -639,28 +640,28 @@ public class VendaParcelada_AVista {
 							else {
 								Sinalbit01 = "\tERRO";
 							}
-						if ( bit02.length() == 18) 
+						if ( bit02.length() == 18 && bit02.substring(0,2).equals("02")) 
 							{
 								Sinalbit02 = "\tOK";
 							}
 							else {
 							Sinalbit02 = "\tERRO";
 						}
-						if (bit03.length() == 6) {
+						if (bit03.length() == 6 && bit03.substring(0,2).equals("03")) {
 							Sinalbit03 = "\tOK";
 						}
 							else {
 							Sinalbit03 = "\tERRO";
 						}
 						
-						if (bit43.length() <= 34)
+						if (bit43.length() <= 34 && bit43.substring(0,2).equals("43"))
 						{
 							Sinalbit43 = "\tOK";
 						}
 							else {
 							Sinalbit43 = "\tERRO";
 						}
-						if (bit45.length() <= 52)
+						if (bit45.length() <= 52 && bit45.substring(0,2).equals("45"))
 						{
 							Sinalbit45 = "\tOK";
 						}
@@ -668,7 +669,7 @@ public class VendaParcelada_AVista {
 							Sinalbit45 = "\tERRO";
 						}
 						
-						if (bit46.length() <= 40)
+						if (bit46.length() <= 40 && bit46.substring(0,2).equals("46"))
 						{
 							Sinalbit46 = "\tOK";
 						}
@@ -676,7 +677,7 @@ public class VendaParcelada_AVista {
 							Sinalbit46 = "\tERRO";
 						}
 						
-						if (bit47.length() <= 14)
+						if (bit47.length() <= 14 && bit47.substring(0,2).equals("47"))
 						{
 							Sinalbit47 = "\tOK";
 						}
@@ -684,14 +685,14 @@ public class VendaParcelada_AVista {
 							Sinalbit47 = "\tERRO";
 						}
 						
-						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004"))
+						if (bit48.length() == 6 && bit48.equals("480001") || bit48.equals("480002") || bit48.equals("480002") || bit48.equals("480003") || bit48.equals("480004") && bit48.substring(0,2).equals("48"))
 						{
 							Sinalbit48 = "\tOK";
 						}
 							else {
 							Sinalbit48 = "\tERRO";
 						}
-						if (bit49.length() == 18)
+						if (bit49.length() == 18 && bit49.substring(0,2).equals("49"))
 						{
 							Sinalbit49 = "\tOK";
 						}
@@ -699,7 +700,7 @@ public class VendaParcelada_AVista {
 							Sinalbit49 = "\tERRO";
 						}
 						
-						if (bit4b.length() == 8)
+						if (bit4b.length() == 8 && bit4b.substring(0,2).equalsIgnoreCase("4B"))
 						{
 							Sinalbit4b = "\tOK";
 						}
@@ -707,7 +708,7 @@ public class VendaParcelada_AVista {
 							Sinalbit4b = "\tERRO";
 						}
 						
-						if (bit88.length() == 38)
+						if (bit88.length() == 38 && bit88.substring(0,2).equals("88"))
 						{
 							Sinalbit88 = "\tOK";
 						}
@@ -715,7 +716,7 @@ public class VendaParcelada_AVista {
 							Sinalbit88 = "\tERRO";
 						}
 						
-						if (bit92.length() <= 74)
+						if (bit92.length() <= 74 && bit92.substring(0,2).equals("92"))
 						{
 							Sinalbit92 = "\tOK";
 						}
@@ -723,7 +724,7 @@ public class VendaParcelada_AVista {
 							Sinalbit92 = "\tERRO";
 						}
 						
-						if (bit93.length() <= 44)
+						if (bit93.length() <= 44 && bit93.substring(0,2).equals("93"))
 						{
 							Sinalbit93 = "\tOK";
 						}
